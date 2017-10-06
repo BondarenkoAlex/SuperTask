@@ -1,0 +1,20 @@
+{
+  "presets": [
+    ["es2015", {
+      "modules": false,
+    }],
+    "react",
+    "airbnb",
+  ],
+  "plugins": [],
+  "env": {
+    "development": {
+      "presets": [],
+      "plugins": []
+    },
+    "production": {
+      "presets": [],
+      "plugins": []
+    }
+  }
+}

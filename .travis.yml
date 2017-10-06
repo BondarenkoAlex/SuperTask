@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "6"
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
+  local_dir: "dist/production"
+
+cache:
+  directories:
+    - node_modules
+  yarn: true
+
+script:
+  - "yarn run build:prod"
+  - "yarn run test:travis"
+
+
