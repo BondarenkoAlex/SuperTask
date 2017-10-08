@@ -1,0 +1,36 @@
+@import "../../variables.scss";
+
+:local(.checkbox) {
+  composes: ButtonText;
+
+  input[type='checkbox'] {
+    width: auto;
+    height: auto;
+  }
+  input[type=checkbox] {
+    display: none;
+  }
+  input[type=checkbox] + label:before {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    vertical-align: text-top;
+    margin-right: 8px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  input[type=checkbox] + label:before {
+    content: url("./img/off-normal.svg");
+  }
+  input[type=checkbox]:checked + label:before {
+    content: url("./img/on-normal.svg");
+  }
+  input[type=checkbox]:active + label:before {
+    content: url("./img/off-pressed.svg");
+  }
+
+  label {
+    color: $black-87;
+  }
+}
+
+

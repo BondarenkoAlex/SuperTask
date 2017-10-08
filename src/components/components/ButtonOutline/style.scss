@@ -1,0 +1,35 @@
+@import "../../variables.scss";
+
+:local(.buttonCommon) {
+  padding: 10px 16px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  composes: ButtonText;
+}
+
+:local(.buttonGreenOutline) {
+  composes: buttonCommon;
+  color: $green-blue;
+}
+
+:local(.buttonGreenOutline):hover {
+  color: $bluegreen;
+}
+
+:local(.buttonGreenOutline):active {
+  color: $deep-teal;
+}
+
+:local(.buttonBlackOutline) {
+  composes: buttonCommon;
+  color: $black-37;
+}
+
+:local(.buttonBlackOutline):hover {
+  color: $black-47;
+}
+
+:local(.buttonBlackOutline):active {
+  color: $black-87;
+}

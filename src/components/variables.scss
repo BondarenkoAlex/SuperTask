@@ -1,0 +1,44 @@
+/* Color palette */
+
+$bluegreen: rgb(0, 129, 108);
+$black-37: rgba(0, 0, 0, 0.37);
+$black-87: rgba(0, 0, 0, 0.87);
+$deep-teal: rgb(0, 101, 84);
+$black-47: rgba(0, 0, 0, 0.47);
+$green-blue: rgb(0, 170, 135);
+$black--12: rgba(0, 0, 0, 0.12);
+$white: rgb(255, 255, 255);
+$bluegreen-two: rgb(0, 130, 108);
+
+/* Text styles */
+:local(.Placeholder) {
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $black-37;
+}
+
+:local(.ButtonText) {
+  font-family: Roboto;
+  font-size: 16px;
+}
+
+/*:local(.Text) {
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  color: $black-87;
+}*/
+
+:local(.White-text-button) {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: $white;
+}
+
+

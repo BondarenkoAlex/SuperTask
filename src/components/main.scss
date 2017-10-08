@@ -1,0 +1,26 @@
+@import "./variables.scss";
+
+h1 {
+  font-family: Roboto; /*AkzidenzGroteskPro-Md;*/
+  font-size: 82px;
+  line-height: 0.78;
+  letter-spacing: -0.1px;
+  text-align: left;
+  color: rgb(26, 24, 24);
+}
+
+h2 {
+  font-family: Roboto;
+  font-size: 23px;
+  line-height: 1.39;
+  text-align: left;
+  color: $black-87;
+}
+
+h3 {
+  font-family: Roboto;
+  font-size: 19px;
+  line-height: 1.47;
+  text-align: left;
+  color: $black-87;
+}

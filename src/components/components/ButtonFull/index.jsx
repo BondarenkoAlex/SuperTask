@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
+import style from './style.scss';
 
 class ButtonFull extends PureComponent {
   render() {
@@ -10,7 +10,7 @@ class ButtonFull extends PureComponent {
     } = this.props;
     return (
       <button
-        className="PicItem"
+        className={style.buttonBg}
         type="button"
         onClick={onClick}
       >
