@@ -1,0 +1,16 @@
+@import "../../variables.scss";
+
+:local(.buttonClose) {
+  width: 14px;
+  height: 14px;
+  fill: $black-37;
+
+  &:hover {
+    fill: $black-47;
+  }
+
+  &:active {
+    fill: $black--77;
+  }
+}
+

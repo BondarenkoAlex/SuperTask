@@ -5,6 +5,8 @@ import './font.scss';
 import ButtonFull from './components/ButtonFull';
 import ButtonOutline from './components/ButtonOutline';
 import Checkbox from './components/Checkbox';
+import InputText from './components/InputText';
+import ButtonClose from './components/ButtonClose';
 
 function App() {
   return (
@@ -29,6 +31,11 @@ function App() {
       >
         КНОПКА
       </Checkbox>
+      <InputText
+        onChange={() => {}}
+        value="Hello"
+      />
+      <ButtonClose/>
     </div>
   );
 }
