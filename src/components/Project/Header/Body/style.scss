@@ -1,0 +1,9 @@
+@import "../../../style/variables";
+
+:local(.articleBody) {
+
+}
+
+:local(.articleSpan) {
+  composes: ButtonText;
+}

@@ -1,29 +1,29 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Button from './Button';
 import style from './style.scss';
 
-class ButtonOutline extends PureComponent {
+class Green extends PureComponent {
   render() {
     const {
       children,
       onClick,
     } = this.props;
     return (
-      <button
-        className={style.buttonBlackOutline}
-        type="button"
+      <Button
+        className={style.buttonGreenOutline}
         onClick={onClick}
       >
         {children}
-      </button>
+      </Button>
     );
   }
 }
 
-ButtonOutline.propTypes = {
+Green.propTypes = {
   children: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
-ButtonOutline.defaultProps = {};
+Green.defaultProps = {};
 
-export default ButtonOutline;
+export default Green;

@@ -1,4 +1,9 @@
-@import "variables";
+@import "./variables";
+
+body {
+  font-family: Roboto;
+  background-color: rgb(242, 242, 242);
+}
 
 h1 {
   font-family: Roboto; /*AkzidenzGroteskPro-Md;*/
@@ -15,6 +20,8 @@ h2 {
   line-height: 1.39;
   text-align: left;
   color: $black-87;
+  font-weight: normal;
+  margin: 8px 0;
 }
 
 h3 {
@@ -23,4 +30,16 @@ h3 {
   line-height: 1.47;
   text-align: left;
   color: $black-87;
+  font-weight: normal;
+  margin: 0;
+}
+
+h4 {
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  color: $black-87;
+  font-weight: normal;
+  margin: 4px 0;
 }

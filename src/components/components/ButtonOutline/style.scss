@@ -1,35 +1,38 @@
-@import "../../variables.scss";
+@import "../../style/variables";
 
 :local(.buttonCommon) {
   padding: 10px 16px;
   background-color: transparent;
   border: none;
   outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
   composes: ButtonText;
-}
-
-:local(.buttonGreenOutline) {
-  composes: buttonCommon;
-  color: $green-blue;
-}
-
-:local(.buttonGreenOutline):hover {
-  color: $bluegreen;
-}
-
-:local(.buttonGreenOutline):active {
-  color: $deep-teal;
 }
 
 :local(.buttonBlackOutline) {
   composes: buttonCommon;
   color: $black-37;
+
+  &:hover {
+    color: $black-47;
+  }
+
+  &:active {
+    color: $black-87;
+  }
 }
 
-:local(.buttonBlackOutline):hover {
-  color: $black-47;
+:local(.buttonGreenOutline) {
+  composes: buttonCommon;
+  color: $green-blue;
+
+  &:hover {
+    color: $bluegreen;
+  }
+
+  &:active {
+    color: $deep-teal;
+  }
 }
 
-:local(.buttonBlackOutline):active {
-  color: $black-87;
-}

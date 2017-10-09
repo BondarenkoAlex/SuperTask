@@ -1,6 +1,7 @@
-@import "../../variables.scss";
+@import "../../style/variables";
 
 :local(.checkbox) {
+  display: inline;
   composes: ButtonText;
 
   input[type='checkbox'] {

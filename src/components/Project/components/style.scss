@@ -1,0 +1,17 @@
+@import "../../style/variables";
+
+:local(.buttonSet) {
+  div {
+    display: inline-block;
+  }
+}
+
+:local(.buttonClick) {
+  width: 60%;
+}
+
+:local(.buttonDelete) {
+  width: 40%;
+}
+
+

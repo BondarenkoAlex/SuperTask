@@ -1,0 +1,20 @@
+@import "../../style/variables";
+
+:local(.sectionProject) {
+  position: relative;
+  border-top: 1px solid $black--12;
+  padding: 12px 0;
+
+  article {
+    padding-right: 340px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  aside {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 340px;
+  }
+}

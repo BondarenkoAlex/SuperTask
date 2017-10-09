@@ -1,0 +1,16 @@
+@import "../style/variables";
+
+:local(.header) {
+  padding: 0 0px;
+  margin: 16px 0;
+
+  /* ???????? */
+  input[type=text] {
+    margin-right: 16px;
+  }
+
+  /* ???????? */
+  button {
+    float: right;
+  }
+}

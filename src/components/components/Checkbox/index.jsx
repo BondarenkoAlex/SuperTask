@@ -10,7 +10,7 @@ class Checkbox extends PureComponent {
       onClick,
     } = this.props;
     return (
-      <div className={style.checkbox}>
+      <div className={[style.checkbox, style.checkboxGlobal]}>
         <input
           type="checkbox"
           id="auth_block_save_for"

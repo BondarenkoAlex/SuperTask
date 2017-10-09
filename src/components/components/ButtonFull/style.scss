@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import "../../style/variables";
 
 :local(.buttonBg) {
   width: 215px;
@@ -8,6 +8,7 @@
   box-shadow: 0 2px 2px 0 $black--12, 0 0 2px 0 $black--12;
   border: 0 solid transparent;
   color: $white;
+  text-transform: uppercase;
   composes: ButtonText;
 }
 

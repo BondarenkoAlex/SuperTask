@@ -1,0 +1,15 @@
+@import "../../../style/variables";
+
+:local(.vacancy) {
+  color: $black-57;
+  span {
+    display: inline-block;
+    vertical-align: sub;
+    padding-left: 8px;
+  }
+
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
