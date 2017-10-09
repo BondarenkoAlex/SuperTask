@@ -7,6 +7,8 @@ import style from './style.scss';
 
 import Header from './Header';
 import Project from './Project';
+import Modal from './Modal';
+import DialogWindow from './components/DialogWindow';
 
 function App() {
   return (
@@ -15,6 +17,11 @@ function App() {
       <Header />
       <Project />
       <Project />
+      <Modal>
+        <DialogWindow
+          title="Привет"
+        />
+      </Modal>
     </div>
   );
 }

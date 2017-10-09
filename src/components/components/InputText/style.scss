@@ -1,14 +1,15 @@
 @import "../../style/variables";
 
 :local(.inputText) {
-  width: 340px;
+  width: 100%;
   padding: 8px 16px;
   border-radius: 2px;
   background-color: $white;
-  border: solid 1px $black--12;
+  border: solid 1px $black-12;
   outline: none;
   color: $black-87;
   composes: Placeholder;
+  box-sizing: content-box;
 
   &:hover{
     border-radius: 3px;

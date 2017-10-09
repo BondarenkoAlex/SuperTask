@@ -1,0 +1,53 @@
+@import "../style/variables";
+
+.modal-window {
+  position: fixed;
+  background-color: $black-57;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  /*opacity: 0;*/
+  transition: all 0.3s;
+
+  /*  .modal-window:target {
+      opacity: 1;
+      pointer-events: auto;
+    }*/
+
+/*  > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 2rem;
+    background: #fff;
+    color: #444;
+  }
+
+  header {
+    font-weight: bold;
+  }
+
+  .modal-close {
+    color: #aaa;
+    line-height: 50px;
+    font-size: 80%;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 70px;
+    text-decoration: none;
+  }
+
+  .modal-close:hover {
+    color: #000;
+  }
+
+  h1 {
+    font-size: 150%;
+    margin: 0 0 15px;
+  }*/
+}
+

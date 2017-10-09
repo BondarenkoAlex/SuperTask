@@ -16,7 +16,9 @@ class Header extends Component {
   render() {
     return (
       <div className={style.header}>
-        <InputText onChange={() => {}} />
+        <div className={style.wrapInput}>
+          <InputText onChange={() => {}} />
+        </div>
         <Checkbox onClick={() => {}}>
           Только открытые
         </Checkbox>

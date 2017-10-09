@@ -1,0 +1,44 @@
+@import "../../style/variables";
+
+:local(.dialogWindow) {
+
+  width: 600px;
+  border-radius: 3px;
+  background-color: $white;
+  box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.24), 0 0 24px 0 $black-12;
+  margin: 20% auto auto;
+  padding: 24px;
+
+  header {
+    position: relative;
+    /*padding: 15px 0;
+    border-bottom: 1px solid $black-12;*/
+  }
+
+  :local(.buttonClose) {
+    position: absolute;
+    outline: none;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    &:after {
+      content: " ";
+      display: inline-block;
+      height: 100%;
+      width: 0;
+      vertical-align: middle;
+    }
+
+    & svg {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  :local(.hr) {
+    border-bottom: 1px solid $black-12;
+    margin: 15px 0 24px;
+  }
+}
+

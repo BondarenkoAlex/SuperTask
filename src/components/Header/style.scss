@@ -1,13 +1,15 @@
 @import "../style/variables";
 
 :local(.header) {
-  padding: 0 0px;
+  padding: 0;
   margin: 16px 0;
 
-  /* ???????? */
-  input[type=text] {
+  :local(.wrapInput) {
+    display: inline-block;
+    width: 340px;
     margin-right: 16px;
   }
+
 
   /* ???????? */
   button {
