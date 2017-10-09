@@ -23,7 +23,7 @@ class ProjectHeader extends Component {
     return (
       <section className={style.sectionProject}>
         <header>
-          <h2>Название первого проекта</h2>
+          <h2>Очень-очень длинное название третьего проекта, которое переносится на две строки</h2>
         </header>
         <Body
           data={data}

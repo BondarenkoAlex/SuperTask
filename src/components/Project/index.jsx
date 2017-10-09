@@ -18,6 +18,7 @@ class Project extends Component {
         <Header />
         <Vacancy />
         <Vacancy />
+        <Vacancy />
       </article>
     );
   }

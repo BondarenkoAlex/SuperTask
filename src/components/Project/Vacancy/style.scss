@@ -3,10 +3,10 @@
 :local(.sectionProject) {
   position: relative;
   border-top: 1px solid $black--12;
-  padding: 12px 0;
+  padding: 13px 0;
 
-  article {
-    padding-right: 340px;
+  header, article {
+    padding-right: 260px;
     width: 100%;
     box-sizing: border-box;
   }
@@ -15,6 +15,6 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 340px;
+    width: 260px;
   }
 }
