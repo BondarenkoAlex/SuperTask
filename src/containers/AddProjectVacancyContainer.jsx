@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import ProjectAdd from '../components/components/ProjectAdd';
+import AddProjectVacancy from '../components/components/AddProjectVacancy';
 import DialogWindow from '../components/components/DialogWindow';
 import Modal from '../components/Modal';
 
@@ -22,7 +22,8 @@ class AddProjectVacancyContainer extends Component {
     });
   }
 
-  onSubmit() {
+  onSubmit(e) {
+    e.preventDefault();
     const { value } = this.state;
     const { onSubmit } = this.props;
     onSubmit(value);
@@ -36,8 +37,8 @@ class AddProjectVacancyContainer extends Component {
           onClose={onClose}
           title={title}
         >
-          <ProjectAdd
-            onCreate={this.onSubmit}
+          <AddProjectVacancy
+            onSubmit={this.onSubmit}
             onChangeName={this.onChange}
             value={this.state.value}
             placeholder={title}

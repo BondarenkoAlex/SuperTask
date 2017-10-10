@@ -29,6 +29,7 @@ class ProjectHeader extends Component {
         </header>
         <Body
           count={count}
+          isClosed={isClosed}
           onAdd={onAdd}
         />
         <SideButtons
@@ -36,8 +37,8 @@ class ProjectHeader extends Component {
           onClick={onOpenClose}
         >
           {{
-            true: 'Закрыть проект',
-            false: 'Открыть проект',
+            false: 'Закрыть проект',
+            true: 'Открыть проект',
           }[isClosed]}
         </SideButtons>
       </section>

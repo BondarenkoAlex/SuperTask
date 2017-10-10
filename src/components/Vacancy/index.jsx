@@ -30,8 +30,8 @@ class Vacancy extends Component {
           onClick={onOpenClose}
         >
           {{
-            true: 'Закрыть вакансию',
-            false: 'Открыть вакансию',
+            false: 'Закрыть вакансию',
+            true: 'Открыть вакансию',
           }[isClosed]}
         </SideButtons>
       </article>

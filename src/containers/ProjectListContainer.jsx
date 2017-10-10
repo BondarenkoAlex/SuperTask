@@ -7,7 +7,12 @@ import autoBind from 'react-autobind';
 
 import Project from '../components/Project';
 import AddProjectVacancyContainer from './AddProjectVacancyContainer';
-import { addVacancy } from '../actions';
+import DeleteProjectVacancy from '../components/components/DeleteProjectVacancy';
+import {
+  addVacancy,
+  removeProject,
+  openCloseProject,
+} from '../actions';
 
 class ProjectListContainer extends Component {
   constructor(props, context) {
@@ -16,15 +21,11 @@ class ProjectListContainer extends Component {
     this.id = null;
     this.state = {
       isModalOpen: false,
+      isModalOpenDelete: false,
     };
   }
 
-  resetId() {
-    this.id = null;
-  }
-
   onAdd(id) {
-    debugger;
     this.id = id;
     this.updateState({
       isModalOpen: true,
@@ -32,16 +33,20 @@ class ProjectListContainer extends Component {
   }
 
   onDelete(id) {
-    debugger;
+    this.id = id;
+    this.updateState({
+      isModalOpenDelete: true,
+    });
   }
 
   onOpenClose(id) {
-    debugger;
+    this.props.openCloseProject(id);
   }
 
   onCloseModal() {
     this.updateState({
       isModalOpen: false,
+      isModalOpenDelete: false,
     });
   }
 
@@ -52,6 +57,17 @@ class ProjectListContainer extends Component {
     this.props.addVacancy(id, value);
   }
 
+  onDeleteSubmit() {
+    const id = this.id;
+    this.resetId();
+    this.onCloseModal();
+    this.props.removeProject(id);
+  }
+
+  resetId() {
+    this.id = null;
+  }
+
   updateState(payload) {
     this.setState({
       ...this.state,
@@ -60,8 +76,8 @@ class ProjectListContainer extends Component {
   }
 
   render() {
-    const { projects, vacancies } = this.props;
-    const { isModalOpen } = this.state;
+    const { projects, vacancies, titleModal, nameButtonModal } = this.props;
+    const { isModalOpen, isModalOpenDelete } = this.state;
     return ([
       ...Object.keys(projects).map((key) => {
         const {
@@ -93,6 +109,14 @@ class ProjectListContainer extends Component {
           title="Новая вакансия"
           key="add-header-container"
         />),
+      isModalOpenDelete && (
+        <DeleteProjectVacancy
+          title={titleModal}
+          name={nameButtonModal}
+          onSubmit={this.onDeleteSubmit}
+          onClose={this.onCloseModal}
+          key="modal-delete"
+        />),
     ]);
   }
 }
@@ -101,8 +125,13 @@ ProjectListContainer.propTypes = {
   projects: PropTypes.object.isRequired,
   vacancies: PropTypes.object.isRequired,
   addVacancy: PropTypes.func.isRequired,
+  removeProject: PropTypes.func.isRequired,
+  openCloseProject: PropTypes.func.isRequired,
 };
-ProjectListContainer.defaultProps = {};
+ProjectListContainer.defaultProps = {
+  titleModal: 'Удалить проект',
+  nameButtonModal: 'Да',
+};
 
 const mapStateToProps = state => ({
   projects: state.projects,
@@ -112,6 +141,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
     addVacancy,
+    removeProject,
+    openCloseProject,
   }, dispatch)
 );
 

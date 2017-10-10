@@ -14,15 +14,15 @@ class Body extends PureComponent {
     return (
       <section className={style.vacancy}>
         {{
-          true: (
-            <div>
-              <CkeckIcon />
-              <span>Вакансия закрыта, сотрудник нанят</span>
-            </div>),
           false: (
             <div>
               <SearchIcon />
               <span>Вакансия открыта, идет подбор кандидатов</span>
+            </div>),
+          true: (
+            <div>
+              <CkeckIcon />
+              <span>Вакансия закрыта, сотрудник нанят</span>
             </div>),
         }[isClosed]}
       </section>

@@ -1,11 +1,8 @@
+/* eslint-disable no-shadow */
 import {
-  ADD_PROJECT,
-  CLOSE_PROJECT,
-  REFRESH_PROJECT,
   REMOVE_PROJECT,
   ADD_VACANCY,
-  CLOSE_VACANCY,
-  REFRESH_VACANCY,
+  OPEN_CLOSE_VACANCY,
   REMOVE_VACANCY,
 } from '../constants';
 
@@ -20,13 +17,32 @@ function vacancies(state = initialState, action) {
       };
     }
 
-    case '': {
-      return {
-        ...state,
-        isFetching: false,
-        error: null,
-        items: action.payload,
-      };
+    case REMOVE_VACANCY: {
+      const vacs = { ...state };
+      const { vacancyId } = action.payload;
+      delete vacs[vacancyId];
+      return vacs;
+    }
+
+    case REMOVE_PROJECT: {
+      const vacs = { ...state };
+      const { vacancies } = action.payload;
+      vacancies.forEach((id) => {
+        delete vacs[id];
+      });
+      return vacs;
+    }
+
+    case OPEN_CLOSE_VACANCY: {
+      const vacs = { ...state };
+      const {
+        ids,
+        status,
+      } = action.payload;
+      ids.forEach((id) => {
+        vacs[id].isClosed = status;
+      });
+      return vacs;
     }
 
     case '': {

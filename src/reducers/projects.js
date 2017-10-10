@@ -1,11 +1,9 @@
+/* eslint-disable no-shadow */
 import {
   ADD_PROJECT,
-  CLOSE_PROJECT,
-  REFRESH_PROJECT,
+  OPEN_CLOSE_PROJECT,
   REMOVE_PROJECT,
   ADD_VACANCY,
-  CLOSE_VACANCY,
-  REFRESH_VACANCY,
   REMOVE_VACANCY,
 } from '../constants';
 
@@ -18,6 +16,13 @@ function projects(state = initialState, action) {
         ...state,
         ...action.payload,
       };
+    }
+
+    case REMOVE_PROJECT: {
+      const projects = state;
+      const { projectId } = action.payload;
+      delete projects[projectId];
+      return projects;
     }
 
     case ADD_VACANCY: {
@@ -35,11 +40,33 @@ function projects(state = initialState, action) {
       };
     }
 
-    case '': {
+    case REMOVE_VACANCY: {
+      const {
+        projectId,
+        vacancyId,
+      } = action.payload;
+      const project = state[projectId];
+      const { items } = project;
+      const newItems = items.filter(key => key !== vacancyId);
       return {
         ...state,
-        isFetching: false,
-        error: action.payload,
+        [projectId]: {
+          ...project,
+          items: newItems,
+        },
+      };
+    }
+
+    case OPEN_CLOSE_PROJECT: {
+      const id = action.payload;
+      const project = state[id];
+      const { isClosed } = project;
+      return {
+        ...state,
+        [id]: {
+          ...project,
+          isClosed: !isClosed,
+        },
       };
     }
 

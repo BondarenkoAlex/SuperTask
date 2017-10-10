@@ -4,6 +4,7 @@ import React, {
 import PropTypes from 'prop-types';
 
 import Green from '../../../components/ButtonOutline/Green';
+import CkeckIcon from '../../../../components/components/CkeckIcon';
 import declOfNum from '../../../../utils/declOfNum';
 import style from './style.scss';
 
@@ -11,6 +12,7 @@ class Body extends PureComponent {
   render() {
     const {
       count,
+      isClosed,
       onAdd,
     } = this.props;
     const title = declOfNum(count, ['вакансия', 'вакансии', 'вакансий']);
@@ -19,9 +21,18 @@ class Body extends PureComponent {
         <span className={style.articleSpan}>
           {count} {title}
         </span>
-        <Green onClick={onAdd}>
-          Добавить вакансию
-        </Green>
+        {{
+          false: (
+            <Green onClick={onAdd}>
+              Добавить вакансию
+            </Green>),
+          true: (
+            <div className={style.closed}>
+              <CkeckIcon />
+              <span>Проект закрыт, сотрудники наняты</span>
+            </div>),
+        }[isClosed]}
+
       </article>
     );
   }
@@ -29,6 +40,7 @@ class Body extends PureComponent {
 
 Body.propTypes = {
   count: PropTypes.number.isRequired,
+  isClosed: PropTypes.bool.isRequired,
   onAdd: PropTypes.func.isRequired,
 };
 Body.defaultProps = {};

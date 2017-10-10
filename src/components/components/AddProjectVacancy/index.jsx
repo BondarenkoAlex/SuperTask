@@ -4,31 +4,26 @@ import InputText from '../InputText';
 import ButtonFull from '../ButtonFull';
 import style from './style.scss';
 
-function ProjectAdd(props) {
+function AddProjectVacancy(props) {
   const {
-    onCreate,
+    onSubmit,
     onChangeName,
     value,
     placeholder,
+    // eslint-disable-next-line react/prop-types
     type,
   } = props;
   return (
-    <form onSubmit={onCreate}>
-      <div
-        className={style.button}
-        key="button-create"
-      >
+    <form onSubmit={onSubmit}>
+      <div className={style.button}>
         <ButtonFull
-          onClick={onCreate}
+          onClick={onSubmit}
           type={type}
         >
           Создать
         </ButtonFull>
       </div>
-      <div
-        className={style.input}
-        key="input-create"
-      >
+      <div className={style.input}>
         <InputText
           onChange={onChangeName}
           placeholder={placeholder}
@@ -39,14 +34,14 @@ function ProjectAdd(props) {
   );
 }
 
-ProjectAdd.propTypes = {
-  onCreate: PropTypes.func.isRequired,
+AddProjectVacancy.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
   onChangeName: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
 };
-ProjectAdd.defaultProps = {
+AddProjectVacancy.defaultProps = {
   type: 'submit',
 };
 
-export default ProjectAdd;
+export default AddProjectVacancy;
