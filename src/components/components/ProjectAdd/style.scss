@@ -1,0 +1,10 @@
+@import "../../style/variables";
+
+:local(.button) {
+  float: right
+}
+
+:local(.input) {
+  overflow: hidden;
+  padding-right: 8px;
+}

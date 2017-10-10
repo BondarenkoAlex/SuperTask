@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import Grey from '../../components/ButtonOutline/Grey';
+import Grey from '../ButtonOutline/Grey';
 import style from './style.scss';
 
 class SideButtons extends Component {
@@ -13,7 +13,6 @@ class SideButtons extends Component {
 
   render() {
     const {
-      data,
       onClick,
       onDelete,
       children,
@@ -36,10 +35,9 @@ class SideButtons extends Component {
 }
 
 SideButtons.propTypes = {
-  data: PropTypes.object,
-  onClick: PropTypes.func,
-  onDelete: PropTypes.func,
-  children: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  children: PropTypes.string.isRequired,
 };
 SideButtons.defaultProps = {};
 

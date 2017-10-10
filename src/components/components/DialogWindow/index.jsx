@@ -31,7 +31,7 @@ class DialogWindow extends PureComponent {
 DialogWindow.propTypes = {
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string,
-  children: PropTypes.oneOf([
+  children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
   ]),

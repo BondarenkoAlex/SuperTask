@@ -8,6 +8,7 @@ class InputText extends PureComponent {
       value,
       placeholder,
       onChange,
+      autoFocus,
     } = this.props;
     return (
       <input

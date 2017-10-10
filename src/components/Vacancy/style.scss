@@ -1,11 +1,11 @@
-@import "../../style/variables";
+@import "../style/variables";
 
-:local(.sectionProject) {
+:local(.articleProject) {
   position: relative;
   border-top: 1px solid $black-12;
   padding: 13px 0;
 
-  header, article {
+  header, section {
     padding-right: 260px;
     width: 100%;
     box-sizing: border-box;

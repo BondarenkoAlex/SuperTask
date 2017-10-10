@@ -9,7 +9,7 @@
   outline: none;
   color: $black-87;
   composes: Placeholder;
-  box-sizing: content-box;
+  box-sizing: border-box;
 
   &:hover{
     border-radius: 3px;

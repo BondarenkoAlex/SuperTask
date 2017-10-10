@@ -8,46 +8,16 @@
   bottom: 0;
   left: 0;
   z-index: 999;
-  /*opacity: 0;*/
   transition: all 0.3s;
+  text-align: center;
 
-  /*  .modal-window:target {
-      opacity: 1;
-      pointer-events: auto;
-    }*/
-
-/*  > div {
-    width: 400px;
-    position: relative;
-    margin: 10% auto;
-    padding: 2rem;
-    background: #fff;
-    color: #444;
+  &:before {
+    content: " ";
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle;
   }
 
-  header {
-    font-weight: bold;
-  }
-
-  .modal-close {
-    color: #aaa;
-    line-height: 50px;
-    font-size: 80%;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    top: 0;
-    width: 70px;
-    text-decoration: none;
-  }
-
-  .modal-close:hover {
-    color: #000;
-  }
-
-  h1 {
-    font-size: 150%;
-    margin: 0 0 15px;
-  }*/
 }
 

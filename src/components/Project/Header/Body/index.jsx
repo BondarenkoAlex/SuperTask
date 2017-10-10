@@ -4,18 +4,20 @@ import React, {
 import PropTypes from 'prop-types';
 
 import Green from '../../../components/ButtonOutline/Green';
+import declOfNum from '../../../../utils/declOfNum';
 import style from './style.scss';
 
 class Body extends PureComponent {
   render() {
     const {
-      data,
+      count,
       onAdd,
     } = this.props;
+    const title = declOfNum(count, ['вакансия', 'вакансии', 'вакансий']);
     return (
       <article className={style.articleBody}>
         <span className={style.articleSpan}>
-          {2} вакансии
+          {count} {title}
         </span>
         <Green onClick={onAdd}>
           Добавить вакансию
@@ -26,7 +28,7 @@ class Body extends PureComponent {
 }
 
 Body.propTypes = {
-  data: PropTypes.object.isRequired,
+  count: PropTypes.number.isRequired,
   onAdd: PropTypes.func.isRequired,
 };
 Body.defaultProps = {};

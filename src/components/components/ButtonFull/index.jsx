@@ -7,11 +7,12 @@ class ButtonFull extends PureComponent {
     const {
       children,
       onClick,
+      type,
     } = this.props;
     return (
       <button
         className={style.buttonBg}
-        type="button"
+        type={type}
         onClick={onClick}
       >
         {children}
@@ -23,7 +24,10 @@ class ButtonFull extends PureComponent {
 ButtonFull.propTypes = {
   children: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  type: PropTypes.string,
 };
-ButtonFull.defaultProps = {};
+ButtonFull.defaultProps = {
+  type: 'button',
+};
 
 export default ButtonFull;

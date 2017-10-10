@@ -14,15 +14,20 @@ class Header extends Component {
   }
 
   render() {
+    const {
+      onAddProject,
+      onOnlyOpen,
+      onChangeSearch,
+    } = this.props;
     return (
       <div className={style.header}>
         <div className={style.wrapInput}>
-          <InputText onChange={() => {}} />
+          <InputText onChange={onChangeSearch} />
         </div>
-        <Checkbox onClick={() => {}}>
+        <Checkbox onClick={onOnlyOpen}>
           Только открытые
         </Checkbox>
-        <ButtonFull onClick={() => {}}>
+        <ButtonFull onClick={onAddProject}>
           Добавить проект
         </ButtonFull>
       </div>
@@ -30,7 +35,11 @@ class Header extends Component {
   }
 }
 
-Header.propTypes = {};
+Header.propTypes = {
+  onAddProject: PropTypes.func,
+  onOnlyOpen: PropTypes.func,
+  onChangeSearch: PropTypes.func,
+};
 Header.defaultProps = {};
 
 export default Header;
