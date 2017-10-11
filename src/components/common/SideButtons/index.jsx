@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Grey from '../ButtonOutline/Grey';
+import Button from '../ButtonOutline/Button';
 import style from './style.scss';
 
 function SideButtons(props) {
@@ -9,18 +9,20 @@ function SideButtons(props) {
     onClick,
     onDelete,
     children,
+    isClosed,
   } = props;
+  const cls = isClosed ? 'green' : 'gray';
   return (
     <aside className={style.buttonSet}>
-      <div className={style.buttonClick}>
-        <Grey onClick={onClick}>
+      <div className={[style.buttonClick, cls].join(' ')}>
+        <Button onClick={onClick}>
           {children}
-        </Grey>
+        </Button>
       </div>
       <div className={style.buttonDelete}>
-        <Grey onClick={onDelete}>
+        <Button onClick={onDelete}>
           Удалить
-        </Grey>
+        </Button>
       </div>
     </aside>
   );
@@ -30,7 +32,10 @@ SideButtons.propTypes = {
   onClick: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   children: PropTypes.string.isRequired,
+  isClosed: PropTypes.bool,
 };
-SideButtons.defaultProps = {};
+SideButtons.defaultProps = {
+  isClosed: false,
+};
 
 export default SideButtons;

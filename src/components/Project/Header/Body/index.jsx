@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import Green from '../../../common/ButtonOutline/Green';
+import Button from '../../../common/ButtonOutline/Button';
 import CkeckIcon from '../../../common/CkeckIcon';
 import declOfNum from '../../../../utils/declOfNum';
 import style from './style.scss';
@@ -16,21 +16,24 @@ class Body extends PureComponent {
     const title = declOfNum(count, ['вакансия', 'вакансии', 'вакансий']);
     return (
       <article className={style.articleBody}>
-        <span className={style.articleSpan}>
-          {count} {title}
-        </span>
-        {{
-          false: (
-            <Green onClick={onAdd}>
-              Добавить вакансию
-            </Green>),
-          true: (
-            <div className={style.closed}>
-              <CkeckIcon />
-              <span>Проект закрыт, сотрудники наняты</span>
-            </div>),
-        }[isClosed]}
-
+        <div>
+          <span className={style.articleSpan}>
+            {count} {title}
+          </span>
+          {{
+            false: (
+              <div className={[style.addVacancy, 'green'].join(' ')}>
+                <Button onClick={onAdd}>
+                  Добавить вакансию
+                </Button>
+              </div>),
+            true: (
+              <div className={style.closed}>
+                <CkeckIcon />
+                <span>Проект закрыт, сотрудники наняты</span>
+              </div>),
+          }[isClosed]}
+        </div>
       </article>
     );
   }

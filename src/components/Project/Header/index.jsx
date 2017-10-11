@@ -31,6 +31,7 @@ class ProjectHeader extends PureComponent {
         <SideButtons
           onDelete={onDelete}
           onClick={onOpenClose}
+          isClosed={isClosed}
         >
           {{
             false: 'Закрыть проект',

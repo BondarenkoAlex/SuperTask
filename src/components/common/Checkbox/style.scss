@@ -2,7 +2,7 @@
 
 :local(.checkbox) {
   display: inline;
-  composes: ButtonText;
+  composes: ButtonText16;
 
   input[type='checkbox'] {
     width: auto;

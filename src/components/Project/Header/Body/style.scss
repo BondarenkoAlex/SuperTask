@@ -1,7 +1,17 @@
 @import "../../../style/variables";
 
+:local(.articleSpan) {
+  margin-right: 16px;
+  display: inline-block;
+  padding: 10px 0;
+  composes: ButtonText16;
+}
+
 :local(.closed) {
   color: $black-57;
+  display: inline-block;
+  vertical-align: text-bottom;
+
   span {
     display: inline-block;
     vertical-align: sub;
@@ -14,7 +24,6 @@
   }
 }
 
-:local(.articleSpan) {
-  margin-right: 16px;
-  composes: ButtonText;
+:local(.addVacancy) {
+  display: inline-block;
 }

@@ -1,17 +1,14 @@
 @import "../../style/variables";
 
 :local(.buttonCommon) {
-  padding: 10px 0px;
+  padding: 10px 0;
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
   text-transform: uppercase;
-  composes: ButtonText;
-}
+  composes: ButtonText14;
 
-:local(.buttonBlackOutline) {
-  composes: buttonCommon;
   color: $black-37;
 
   &:hover {
@@ -23,8 +20,19 @@
   }
 }
 
-:local(.buttonGreenOutline) {
-  composes: buttonCommon;
+//.gray :local(.buttonCommon) {
+//  color: $black-37;
+//
+//  &:hover {
+//    color: $black-47;
+//  }
+//
+//  &:active {
+//    color: $black-87;
+//  }
+//}
+
+.green :local(.buttonCommon) {
   color: $green-blue;
 
   &:hover {
@@ -35,4 +43,30 @@
     color: $deep-teal;
   }
 }
+
+//:local(.buttonBlackOutline) {
+//  composes: buttonCommon;
+//  color: $black-37;
+//
+//  &:hover {
+//    color: $black-47;
+//  }
+//
+//  &:active {
+//    color: $black-87;
+//  }
+//}
+//
+//:local(.buttonGreenOutline) {
+//  composes: buttonCommon;
+//  color: $green-blue;
+//
+//  &:hover {
+//    color: $bluegreen;
+//  }
+//
+//  &:active {
+//    color: $deep-teal;
+//  }
+//}
 

@@ -9,8 +9,19 @@ class ProjectContainer extends Component {
     super(props, context);
     autoBind(this);
     this.state = {
-      isToogle: true,
+      isToogle: false,
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { vacancies: nextVacancies } = nextProps;
+    const { vacancies } = this.props;
+    const { isToogle } = this.state;
+    if (vacancies.length === 0 && nextVacancies.length > 0 && !isToogle) {
+      this.setState({
+        isToogle: true,
+      });
+    }
   }
 
   onClickHeader() {
@@ -50,7 +61,6 @@ ProjectContainer.propTypes = {
   onAdd: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   onOpenClose: PropTypes.func.isRequired,
-  onClickHeader: PropTypes.func.isRequired,
 };
 ProjectContainer.defaultProps = {};
 

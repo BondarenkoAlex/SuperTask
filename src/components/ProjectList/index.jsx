@@ -13,7 +13,6 @@ class ProjectList extends PureComponent {
       onAdd,
       onDelete,
       onOpenClose,
-      onClickHeader,
     } = this.props;
 
     return (
@@ -38,7 +37,6 @@ class ProjectList extends PureComponent {
               onAdd={onAddLoc}
               onDelete={onDeleteLoc}
               onOpenClose={onOpenCloseLoc}
-              onClickHeader={onClickHeader}
             />
           );
         })}
@@ -54,7 +52,6 @@ ProjectList.propTypes = {
   onAdd: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   onOpenClose: PropTypes.func.isRequired,
-  onClickHeader: PropTypes.func.isRequired,
 };
 ProjectList.defaultProps = {};
 

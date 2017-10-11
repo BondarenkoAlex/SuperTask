@@ -49,7 +49,7 @@ Header.propTypes = {
   placeholder: PropTypes.string,
 };
 Header.defaultProps = {
-  placeholder: 'поиск',
+  placeholder: 'Поиск по вакансиям',
 };
 
 export default Header;

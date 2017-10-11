@@ -21,7 +21,7 @@ $coral: rgb(240, 92, 92);
   color: $black-37;
 }
 
-:local(.ButtonText) {
+:local(.ButtonText16) {
   font-family: Roboto;
   font-size: 16px;
 }
@@ -34,14 +34,13 @@ $coral: rgb(240, 92, 92);
   color: $black-87;
 }*/
 
-:local(.White-text-button) {
+:local(.ButtonText14) {
   font-family: Roboto;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.5px;
   text-align: center;
-  color: $white;
 }
 
 

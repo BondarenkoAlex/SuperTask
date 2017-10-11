@@ -69,10 +69,6 @@ class ProjectListContainer extends Component {
     this.id = null;
   }
 
-  onClickHeader() {
-
-  }
-
   updateState(payload) {
     this.setState({
       ...this.state,
@@ -109,7 +105,7 @@ class ProjectListContainer extends Component {
         />),
       isModalOpenDelete && (
         <DeleteProjectVacancy
-          title={titleModal}
+          title={`${titleModal} "${projects[this.id].title}"`}
           name={nameButtonModal}
           onSubmit={this.onDeleteSubmit}
           onClose={this.onCloseModal}

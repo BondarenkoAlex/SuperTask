@@ -22,6 +22,7 @@ class Vacancy extends PureComponent {
         <SideButtons
           onDelete={onDelete}
           onClick={onOpenClose}
+          isClosed={isClosed}
         >
           {{
             false: 'Закрыть вакансию',

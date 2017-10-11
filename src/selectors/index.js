@@ -15,7 +15,7 @@ export const projectSelector = createSelector(
   searchSelector,
   (projects, vacancies, searchObj) => {
     const { searchValue, isOnlyOpen } = searchObj;
-    if (isEmpty(searchValue)) {
+    if (isEmpty(searchValue) && !isOnlyOpen) {
       return projects;
     }
     const result = {};
@@ -25,10 +25,20 @@ export const projectSelector = createSelector(
       const newItems = items.filter((id) => {
         const vacancy = vacancies[id];
         const { title, isClosed } = vacancy;
-        const isSearch = title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
-        return isOnlyOpen
-          ? isSearch && !isClosed
-          : isSearch;
+        const isOpen = isOnlyOpen && !isClosed;
+        // если строка поиска пустая, то все вакансии включаются в выборку
+        const isFinded = isEmpty(searchValue)
+          ? true
+          : title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
+        if (!isEmpty(searchValue) && isOnlyOpen) {
+          // только открытые со словами
+          return isOpen && isFinded;
+        } else if (isEmpty(searchValue) && isOnlyOpen) {
+          // только открытые
+          return isOpen;
+        }
+        // только со словами
+        return isFinded;
       });
       if (!isEmpty(newItems)) {
         // есть вакансии удовлетворяющие условиям
@@ -38,7 +48,7 @@ export const projectSelector = createSelector(
         };
       }
     });
-    debugger;
+
     return result;
   },
 );

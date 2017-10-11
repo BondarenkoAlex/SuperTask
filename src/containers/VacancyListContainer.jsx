@@ -42,12 +42,12 @@ class VacancyListContainer extends Component {
   onDeleteSubmit(e) {
     e.preventDefault();
     this.onCloseModal();
-    const vacancy = this.vacancy;
-    this.resetVacancy();
-    this.props.removeVacancy(vacancy);
+    const id = this.id;
+    this.resetId();
+    this.props.removeVacancy(id);
   }
 
-  resetVacancy() {
+  resetId() {
     this.id = null;
   }
 
@@ -67,6 +67,11 @@ class VacancyListContainer extends Component {
       // eslint-disable-next-line react/prop-types
       nameButtonModal,
     } = this.props;
+    let titleVacancy;
+    if (isModalOpen) {
+      const index = Object.keys(vacancies).filter(key => vacancies[key].id === this.id);
+      titleVacancy = vacancies[index].title;
+    }
     return ([
       <VacancyList
         vacancies={vacancies}
@@ -76,7 +81,7 @@ class VacancyListContainer extends Component {
       />,
       isModalOpen && (
         <DeleteProjectVacancy
-          title={titleModal}
+          title={`${titleModal} "${titleVacancy}"`}
           name={nameButtonModal}
           onSubmit={this.onDeleteSubmit}
           onClose={this.onCloseModal}

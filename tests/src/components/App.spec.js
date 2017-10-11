@@ -9,21 +9,19 @@ import { expect } from 'chai';
 import App from '../../../src/components/App';
 import '../../setupTests';
 
-describe('Набор', () => {
+describe('App', () => {
   it('Компонент App должен существовать', () => {
     const wrapper = shallow(<App />);
     expect(wrapper).to.have.length(1);
   });
 
-  // it('contains spec with an expectation', () => {
-  //   expect(shallow(<Foo />).is('.foo')).to.equal(true);
-  // });
-  //
-  // it('contains spec with an expectation', () => {
-  //   expect(mount(<Foo />).find('.foo').length).to.equal(1);
-  // });
-  //
-  // it('can run an expectation with render', () => {
-  //   expect(render(<Foo />).find('.foo').length).to.equal(1);
-  // });
+  it('Тег h1 должен существовать', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('h1')).to.have.length(1);
+  });
+
+  it('Тег div должен существовать', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('div')).to.have.length(1);
+  });
 });
