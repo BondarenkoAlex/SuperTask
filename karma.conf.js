@@ -8,10 +8,10 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'sinon-chai'],
+    frameworks: ['es6-shim', 'mocha', 'sinon-chai'],
 
     // list of files / patterns to load in the browser
-    files: [
+    files: [/*'tests/setupTests.js',*/
       'tests/src/**/*.spec.js',
     ],
 
@@ -44,8 +44,8 @@ module.exports = function (config) {
     scssPreprocessor: {
       options: {
         sourceMap: true,
-        includePaths: ['bower_components']
-      }
+        includePaths: ['bower_components'],
+      },
     },
 
     webpack: { //kind of a copy of your webpack config
@@ -62,15 +62,18 @@ module.exports = function (config) {
           }, {
             test: /\.scss$/,
             loaders: ['raw-loader', 'sass-loader'], // sass-loader not scss-loader,
-            exclude: path.resolve(__dirname, 'node_modules')
+            exclude: path.resolve(__dirname, 'node_modules'),
           },
-        ]
+        ],
       },
       externals: {
-        //'react-dom': true,
+        cheerio: 'window',
         'react/addons': true,
         'react/lib/ExecutionEnvironment': true,
         'react/lib/ReactContext': true,
+      },
+      resolve: {
+        extensions: ['.js', '.jsx'],
       },
     },
 
@@ -109,7 +112,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: [/*'Chrome'*/'PhantomJS'],
+    browsers: ['Chrome'/*'PhantomJS'*/],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits

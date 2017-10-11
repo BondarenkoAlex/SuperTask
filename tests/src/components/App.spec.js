@@ -1,11 +1,16 @@
-import '../../setupTests';
-// import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+import {
+  shallow,
+  mount,
+  render,
+} from 'enzyme';
 import { expect } from 'chai';
-import App from '../../../src/components/common/CkeckIcon/index.jsx';
+import App from '../../../src/components/App';
+import '../../setupTests';
 
-describe('A suite', () => {
-  it('contains spec with an expectation', () => {
+describe('Набор', () => {
+  it('Компонент App должен существовать', () => {
     const wrapper = shallow(<App />);
     expect(wrapper).to.have.length(1);
   });
