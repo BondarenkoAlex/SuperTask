@@ -1,6 +1,4 @@
-// Karma configuration
-// Generated on Wed Jun 07 2017 22:14:30 GMT+0300 (AST)
-const path    = require('path');
+const path = require('path');
 
 module.exports = function (config) {
   config.set({
@@ -14,7 +12,7 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'tests/**/*.spec.js',
+      'tests/src/**/*.spec.js',
     ],
 
     client: {
@@ -39,8 +37,15 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'client/**/*.js': ['webpack', 'sourcemap'/*, 'coverage'*/],
-      'tests/**/*.spec.js': ['webpack', 'sourcemap'/*, 'coverage'*/],
+      'src/**/*.js': ['webpack', 'sourcemap'/*, 'coverage'*/],
+      'tests/src/**/*.spec.js': ['webpack', 'sourcemap'/*, 'coverage'*/],
+      'src/**/*.scss': ['scss'],
+    },
+    scssPreprocessor: {
+      options: {
+        sourceMap: true,
+        includePaths: ['bower_components']
+      }
     },
 
     webpack: { //kind of a copy of your webpack config
@@ -54,10 +59,15 @@ module.exports = function (config) {
             query: {
               presets: ['airbnb'],
             },
-          }
+          }, {
+            test: /\.scss$/,
+            loaders: ['raw-loader', 'sass-loader'], // sass-loader not scss-loader,
+            exclude: path.resolve(__dirname, 'node_modules')
+          },
         ]
       },
       externals: {
+        //'react-dom': true,
         'react/addons': true,
         'react/lib/ExecutionEnvironment': true,
         'react/lib/ReactContext': true,
@@ -90,7 +100,8 @@ module.exports = function (config) {
     colors: true,
 
     // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN ||
+    // config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
     // enable / disable watching file and executing tests whenever any file changes
@@ -98,7 +109,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: [/*'Chrome'*/'PhantomJS'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
@@ -107,7 +118,6 @@ module.exports = function (config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity,
-
 
     webpackMiddleware: {
       // webpack-dev-middleware configuration
