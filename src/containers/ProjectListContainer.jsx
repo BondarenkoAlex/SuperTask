@@ -1,18 +1,19 @@
-/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/forbid-prop-types,react/no-unused-prop-types */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import autoBind from 'react-autobind';
 
-import Project from '../components/Project';
+import ProjectList from '../components/ProjectList';
 import AddProjectVacancyContainer from './AddProjectVacancyContainer';
-import DeleteProjectVacancy from '../components/components/DeleteProjectVacancy';
+import DeleteProjectVacancy from '../components/common/DeleteProjectVacancy';
 import {
   addVacancy,
-  removeProject,
   openCloseProject,
+  removeProject,
 } from '../actions';
+import { projectSelector } from '../selectors';
 
 class ProjectListContainer extends Component {
   constructor(props, context) {
@@ -68,6 +69,10 @@ class ProjectListContainer extends Component {
     this.id = null;
   }
 
+  onClickHeader() {
+
+  }
+
   updateState(payload) {
     this.setState({
       ...this.state,
@@ -76,32 +81,25 @@ class ProjectListContainer extends Component {
   }
 
   render() {
-    const { projects, vacancies, titleModal, nameButtonModal } = this.props;
+    const {
+      projects,
+      vacancies,
+      // eslint-disable-next-line react/prop-types
+      titleModal,
+      // eslint-disable-next-line react/prop-types
+      nameButtonModal,
+    } = this.props;
     const { isModalOpen, isModalOpenDelete } = this.state;
     return ([
-      ...Object.keys(projects).map((key) => {
-        const {
-          id,
-          title,
-          isClosed,
-          items,
-        } = projects[key];
-        const vacs = items.map(k => vacancies[k]);
-        const onAdd = () => { this.onAdd(id); };
-        const onDelete = () => { this.onDelete(id); };
-        const onOpenClose = () => { this.onOpenClose(id); };
-        return (
-          <Project
-            key={id}
-            vacancies={vacs}
-            isClosed={isClosed}
-            title={title}
-            onAdd={onAdd}
-            onDelete={onDelete}
-            onOpenClose={onOpenClose}
-          />
-        );
-      }),
+      <ProjectList
+        projects={projects}
+        vacancies={vacancies}
+        onDelete={this.onDelete}
+        onOpenClose={this.onOpenClose}
+        onAdd={this.onAdd}
+        onClickHeader={this.onClickHeader}
+        key="project-list"
+      />,
       isModalOpen && (
         <AddProjectVacancyContainer
           onSubmit={this.onCreateVacancy}
@@ -127,16 +125,22 @@ ProjectListContainer.propTypes = {
   addVacancy: PropTypes.func.isRequired,
   removeProject: PropTypes.func.isRequired,
   openCloseProject: PropTypes.func.isRequired,
+  isOnlyOpen: PropTypes.bool.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  searchValue: PropTypes.string,
 };
 ProjectListContainer.defaultProps = {
   titleModal: 'Удалить проект',
   nameButtonModal: 'Да',
 };
 
-const mapStateToProps = state => ({
-  projects: state.projects,
-  vacancies: state.vacancies,
-});
+const mapStateToProps = (state, ownProps) => {
+  const projects = projectSelector(state, ownProps);
+  return ({
+    projects,
+    vacancies: state.vacancies,
+  });
+};
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({

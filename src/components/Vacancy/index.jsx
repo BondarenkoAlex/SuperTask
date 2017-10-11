@@ -1,17 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import autoBind from 'react-autobind';
-import SideButtons from '../../components/components/SideButtons';
+import SideButtons from '../common/SideButtons';
 import Body from './Body';
 
 import style from './style.scss';
 
-class Vacancy extends Component {
-  constructor(props, context) {
-    super(props, context);
-    autoBind(this);
-  }
-
+class Vacancy extends PureComponent {
   render() {
     const {
       title,

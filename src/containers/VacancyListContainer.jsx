@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import autoBind from 'react-autobind';
 
-import Vacancy from '../components/Vacancy';
-import DeleteProjectVacancy from '../components/components/DeleteProjectVacancy';
+import VacancyList from '../components/VacancyList';
+import DeleteProjectVacancy from '../components/common/DeleteProjectVacancy';
 import {
-  removeVacancy,
   openCloseVacancies,
+  removeVacancy,
 } from '../actions';
 
 class VacancyListContainer extends Component {
@@ -68,25 +68,12 @@ class VacancyListContainer extends Component {
       nameButtonModal,
     } = this.props;
     return ([
-      ...Object.keys(vacancies).map((key) => {
-        const vacancy = vacancies[key];
-        const {
-          id,
-          title,
-          isClosed,
-        } = vacancy;
-        const onDelete = () => { this.onDelete(id); };
-        const onOpenClose = () => { this.onOpenClose(id); };
-        return (
-          <Vacancy
-            key={id}
-            isClosed={isClosed}
-            title={title}
-            onOpenClose={onOpenClose}
-            onDelete={onDelete}
-          />
-        );
-      }),
+      <VacancyList
+        vacancies={vacancies}
+        onDelete={this.onDelete}
+        onOpenClose={this.onOpenClose}
+        key="vacancy-list"
+      />,
       isModalOpen && (
         <DeleteProjectVacancy
           title={titleModal}

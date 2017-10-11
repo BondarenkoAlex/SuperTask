@@ -1,10 +1,8 @@
-import React, {
-  PureComponent,
-} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import SearchIcon from '../../../components/components/SearchIcon';
-import CkeckIcon from '../../../components/components/CkeckIcon';
+import SearchIcon from '../../common/SearchIcon';
+import CkeckIcon from '../../common/CkeckIcon';
 
 import style from './style.scss';
 

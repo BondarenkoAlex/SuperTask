@@ -1,9 +1,8 @@
 /* eslint-disable max-len */
 import React from 'react';
-import PropTypes from 'prop-types';
 import style from './style.scss';
 
-function ButtonClose(props) {
+function ButtonClose() {
   return (
     <svg
       viewBox="0 0 14 14"

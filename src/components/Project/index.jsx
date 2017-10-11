@@ -1,18 +1,12 @@
 /* eslint-disable react/forbid-prop-types */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import autoBind from 'react-autobind';
 
 import Header from './Header';
 import VacancyListContainer from '../../containers/VacancyListContainer';
 import style from './style.scss';
 
-class Project extends Component {
-  constructor(props, context) {
-    super(props, context);
-    autoBind(this);
-  }
-
+class Project extends PureComponent {
   render() {
     const {
       vacancies,
@@ -21,9 +15,14 @@ class Project extends Component {
       onAdd,
       onDelete,
       onOpenClose,
+      isToogle,
+      onClickHeader,
     } = this.props;
+    const activeClass = isToogle
+      ? 'active'
+      : '';
     return (
-      <article className={style.project}>
+      <article className={[style.project, activeClass].join(' ')}>
         <Header
           title={title}
           count={vacancies.length}
@@ -31,8 +30,11 @@ class Project extends Component {
           onAdd={onAdd}
           onDelete={onDelete}
           onOpenClose={onOpenClose}
+          onClickHeader={onClickHeader}
         />
-        <VacancyListContainer vacancies={vacancies} />
+        {isToogle && (
+          <VacancyListContainer vacancies={vacancies} />
+        )}
       </article>
     );
   }
@@ -41,10 +43,12 @@ class Project extends Component {
 Project.propTypes = {
   vacancies: PropTypes.array.isRequired,
   isClosed: PropTypes.bool.isRequired,
+  isToogle: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   onAdd: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   onOpenClose: PropTypes.func.isRequired,
+  onClickHeader: PropTypes.func.isRequired,
 };
 Project.defaultProps = {};
 

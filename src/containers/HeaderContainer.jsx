@@ -45,11 +45,14 @@ class HeaderContainer extends Component {
 
   render() {
     const { isModalOpen } = this.state;
+    const { onChangeSearch, onOnlyOpen, isOnlyOpen, searchValue } = this.props;
     return ([
       <Header
         onAddProject={this.onAddProject}
-        onChangeSearch={() => {}}
-        onOnlyOpen={() => {}}
+        onChangeSearch={onChangeSearch}
+        onOnlyOpen={onOnlyOpen}
+        isOnlyOpen={isOnlyOpen}
+        searchValue={searchValue}
         key="header-container"
       />,
       isModalOpen && (
@@ -65,15 +68,19 @@ class HeaderContainer extends Component {
 
 HeaderContainer.propTypes = {
   addProject: PropTypes.func.isRequired,
+  onChangeSearch: PropTypes.func.isRequired,
+  onOnlyOpen: PropTypes.func.isRequired,
+  isOnlyOpen: PropTypes.bool.isRequired,
+  searchValue: PropTypes.string,
 };
 HeaderContainer.defaultProps = {};
 
-const mapStateToProps = state => ({});
+// const mapStateToProps = state => ({});
 
-const mapDispatchToProps = (dispatch, ownProps) => (
+const mapDispatchToProps = dispatch => (
   bindActionCreators({
     addProject,
   }, dispatch)
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
+export default connect(/* mapStateToProps */ null, mapDispatchToProps)(HeaderContainer);

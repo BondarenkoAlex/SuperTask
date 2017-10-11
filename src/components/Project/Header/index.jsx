@@ -1,18 +1,13 @@
-import React, { Component } from 'react';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import autoBind from 'react-autobind';
 
 import Body from './Body/index';
-import SideButtons from '../../components/SideButtons';
+import SideButtons from '../../common/SideButtons';
 
 import style from './style.scss';
 
-class ProjectHeader extends Component {
-  constructor(props, context) {
-    super(props, context);
-    autoBind(this);
-  }
-
+class ProjectHeader extends PureComponent {
   render() {
     const {
       title,
@@ -21,10 +16,11 @@ class ProjectHeader extends Component {
       onAdd,
       onDelete,
       onOpenClose,
+      onClickHeader,
     } = this.props;
     return (
       <section className={style.sectionProject}>
-        <header>
+        <header onClick={onClickHeader}>
           <h2>{title}</h2>
         </header>
         <Body
@@ -53,6 +49,7 @@ ProjectHeader.propTypes = {
   onAdd: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   onOpenClose: PropTypes.func.isRequired,
+  onClickHeader: PropTypes.func.isRequired,
 };
 ProjectHeader.defaultProps = {};
 

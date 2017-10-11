@@ -1,30 +1,35 @@
-import React, { Component } from 'react';
+/* eslint-disable react/require-default-props */
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import autoBind from 'react-autobind';
 
-import InputText from '../components/InputText';
-import Checkbox from '../components/Checkbox';
-import ButtonFull from '../components/ButtonFull';
+import InputText from '../common/InputText';
+import Checkbox from '../common/Checkbox';
+import ButtonFull from '../common/ButtonFull';
 import style from './style.scss';
 
-class Header extends Component {
-  constructor(props, context) {
-    super(props, context);
-    autoBind(this);
-  }
-
+class Header extends PureComponent {
   render() {
     const {
       onAddProject,
       onOnlyOpen,
       onChangeSearch,
+      isOnlyOpen,
+      searchValue,
+      placeholder,
     } = this.props;
     return (
       <div className={style.header}>
         <div className={style.wrapInput}>
-          <InputText onChange={onChangeSearch} />
+          <InputText
+            onChange={onChangeSearch}
+            value={searchValue}
+            placeholder={placeholder}
+          />
         </div>
-        <Checkbox onClick={onOnlyOpen}>
+        <Checkbox
+          onClick={onOnlyOpen}
+          checked={isOnlyOpen}
+        >
           Только открытые
         </Checkbox>
         <ButtonFull onClick={onAddProject}>
@@ -39,7 +44,12 @@ Header.propTypes = {
   onAddProject: PropTypes.func,
   onOnlyOpen: PropTypes.func,
   onChangeSearch: PropTypes.func,
+  isOnlyOpen: PropTypes.bool.isRequired,
+  searchValue: PropTypes.string,
+  placeholder: PropTypes.string,
 };
-Header.defaultProps = {};
+Header.defaultProps = {
+  placeholder: 'поиск',
+};
 
 export default Header;

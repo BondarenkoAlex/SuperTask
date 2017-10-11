@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import AddProjectVacancy from '../components/components/AddProjectVacancy';
-import DialogWindow from '../components/components/DialogWindow';
+import AddProjectVacancy from '../components/common/AddProjectVacancy';
+import DialogWindow from '../components/common/DialogWindow';
 import Modal from '../components/Modal';
 
 class AddProjectVacancyContainer extends Component {

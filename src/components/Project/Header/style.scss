@@ -4,6 +4,10 @@
   position: relative;
   padding: 4px 0;
 
+  header{
+    cursor: pointer;
+  }
+
   header, article {
     padding-right: 260px;
     width: 100%;

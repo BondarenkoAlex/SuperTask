@@ -1,10 +1,8 @@
-import React, {
-  PureComponent,
-} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import Green from '../../../components/ButtonOutline/Green';
-import CkeckIcon from '../../../../components/components/CkeckIcon';
+import Green from '../../../common/ButtonOutline/Green';
+import CkeckIcon from '../../../common/CkeckIcon';
 import declOfNum from '../../../../utils/declOfNum';
 import style from './style.scss';
 
