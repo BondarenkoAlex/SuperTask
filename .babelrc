@@ -14,7 +14,7 @@
     },
     "production": {
       "presets": [],
-      "plugins": []
+      "plugins": ["transform-object-assign"]
     }
   }
 }
