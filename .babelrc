@@ -6,7 +6,7 @@
     "react",
     "airbnb",
   ],
-  "plugins": ["transform-object-assign"],
+  "plugins": [],
   "env": {
     "development": {
       "presets": [],
