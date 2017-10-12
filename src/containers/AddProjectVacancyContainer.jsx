@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
@@ -12,6 +13,31 @@ class AddProjectVacancyContainer extends Component {
     this.state = {
       value: '',
     };
+  }
+
+  componentWillMount() {
+    document.addEventListener('keydown', this.onKeyEsc);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.onKeyEsc);
+  }
+
+  onKeyEsc(event) {
+    const { onClose } = this.props;
+    let keyCode;
+    if (event.which === null) { // IE
+      keyCode = event.keyCode;
+    }
+
+    if (event.which !== 0) { // все кроме IE
+      keyCode = event.keyCode;
+    }
+
+    if (keyCode === 27) {
+      // esc
+      onClose();
+    }
   }
 
   onChange(e) {

@@ -2,7 +2,8 @@
 
 :local(.sectionProject) {
   position: relative;
-  margin: 8px 0;
+  /*margin: 8px 0;*/
+  padding: 4px 0 12px;
 
   header{
     cursor: pointer;
@@ -17,7 +18,7 @@
   aside {
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 14px;
     width: 260px;
   }
 
