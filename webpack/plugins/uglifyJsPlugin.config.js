@@ -5,6 +5,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       beautify: true,
       comments: false,
+      ecma: 6,
       compress: {
         warnings: false,
         screw_ie8: true,
