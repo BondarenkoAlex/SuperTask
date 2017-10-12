@@ -20,13 +20,16 @@
     background-color: rgba(255, 255, 255, 0);
   }
   input[type=checkbox] + label:before {
-    content: url("./img/off-normal.svg");
+    /* content: url("./img/off-normal.svg"); */
+    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxwYXRoIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iLjM3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNS45ODQgMGMuNTMyIDAgMSAuMjAzIDEuNDA3LjYxLjQwNi40MDYuNjA5Ljg3NC42MDkgMS40MDZ2MTMuOTY4YzAgLjUzMi0uMjAzIDEtLjYxIDEuNDA3LS40MDYuNDA2LS44NzQuNjA5LTEuNDA2LjYwOUgyLjAxNmMtLjUzMiAwLTEtLjIwMy0xLjQwNy0uNjFDLjIwMyAxNi45ODUgMCAxNi41MTcgMCAxNS45ODVWMi4wMTZjMC0uNTMyLjIwMy0xIC42MS0xLjQwN0MxLjAxNS4yMDMgMS40ODMgMCAyLjAxNSAwaDEzLjk2OHptMCAyLjAxNkgyLjAxNnYxMy45NjhoMTMuOTY4VjIuMDE2eiIvPgo8L3N2Zz4K);
   }
   input[type=checkbox]:checked + label:before {
-    content: url("./img/on-normal.svg");
+    /* content: url("./img/on-normal.svg"); */
+    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxwYXRoIGZpbGw9IiMwMEFBODciIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTYuOTg0IDE0LjAxNmw5LTktMS40MDYtMS40NTQtNy41OTQgNy41OTQtMy41NjItMy41NjJMMi4wMTYgOWw0Ljk2OCA1LjAxNnptOS0xNC4wMTZjLjU2MyAwIDEuMDQuMjAzIDEuNDMuNjEuMzkuNDA2LjU4Ni44NzQuNTg2IDEuNDA2djEzLjk2OGMwIC41MzItLjE5NSAxLS41ODYgMS40MDctLjM5LjQwNi0uODY3LjYwOS0xLjQzLjYwOUgyLjAxNmMtLjU2MyAwLTEuMDQtLjIwMy0xLjQzLS42MS0uMzktLjQwNi0uNTg2LS44NzQtLjU4Ni0xLjQwNlYyLjAxNmMwLS41MzIuMTk1LTEgLjU4Ni0xLjQwN0MuOTc2LjIwMyAxLjQ1MyAwIDIuMDE2IDBoMTMuOTY4eiIvPgo8L3N2Zz4K);
   }
   input[type=checkbox]:active + label:before {
-    content: url("./img/off-pressed.svg");
+    /* content: url("./img/off-pressed.svg"); */
+    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxwYXRoIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iLjU3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNS45ODQgMGMuNTMyIDAgMSAuMjAzIDEuNDA3LjYxLjQwNi40MDYuNjA5Ljg3NC42MDkgMS40MDZ2MTMuOTY4YzAgLjUzMi0uMjAzIDEtLjYxIDEuNDA3LS40MDYuNDA2LS44NzQuNjA5LTEuNDA2LjYwOUgyLjAxNmMtLjUzMiAwLTEtLjIwMy0xLjQwNy0uNjFDLjIwMyAxNi45ODUgMCAxNi41MTcgMCAxNS45ODVWMi4wMTZjMC0uNTMyLjIwMy0xIC42MS0xLjQwN0MxLjAxNS4yMDMgMS40ODMgMCAyLjAxNSAwaDEzLjk2OHptMCAyLjAxNkgyLjAxNnYxMy45NjhoMTMuOTY4VjIuMDE2eiIvPgo8L3N2Zz4K);
   }
   label {
     color: $black-87;

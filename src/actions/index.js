@@ -8,9 +8,15 @@ import {
   REMOVE_VACANCY,
 } from '../constants';
 import generateID from '../utils/generateID';
-import { isArray } from '../utils/check';
+import {
+  isArray,
+  isEmpty,
+} from '../utils/check';
 
 export function addProject(value) {
+  if (isEmpty(value)) {
+    return null;
+  }
   const id = generateID();
   const payload = {
     [id]: {
@@ -49,6 +55,9 @@ export function openCloseProject(id) {
 }
 
 export function addVacancy(projectId, value) {
+  if (isEmpty(value)) {
+    return null;
+  }
   const id = generateID();
   const payload = {
     [id]: {
@@ -77,7 +86,7 @@ export function removeVacancy(id) {
 
 export function openCloseVacancies(ids) {
   return (dispatch, getState) => {
-    const { vacancies } = getState();
+    const { vacancies, projects } = getState();
     let payload;
     if (isArray(ids)) {
       payload = {
@@ -85,7 +94,12 @@ export function openCloseVacancies(ids) {
         status: true,
       };
     } else {
-      const { isClosed } = vacancies[ids];
+      const { isClosed, projectId } = vacancies[ids];
+      const { isClosed: isClosedProject } = projects[projectId];
+      if (isClosedProject) {
+        // Проект закрыт и вакансии тоже, следовательно их открыть нельзя у закрытого проекта
+        return null;
+      }
       payload = {
         ids: [ids],
         status: !isClosed,

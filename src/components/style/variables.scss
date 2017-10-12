@@ -43,4 +43,12 @@ $coral: rgb(240, 92, 92);
   text-align: center;
 }
 
+:local(.Error) {
+  font-family: Roboto;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: left;
+  color: $coral;
+}
+
 

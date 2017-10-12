@@ -16,6 +16,7 @@ function Checkbox(props) {
         id="auth_block_save_for"
         onClick={onClick}
         checked={checked}
+        autoFocus
       />
       <label htmlFor="auth_block_save_for">
         {children}

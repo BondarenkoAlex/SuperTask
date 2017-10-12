@@ -18,8 +18,8 @@ cache:
 
 script:
   # - true
-  # - "yarn run build:prod"
-  - "yarn run build:dev"
+  - "yarn run build:prod"
+  # - "yarn run build:dev"
   - "yarn run test:travis"
 
 
