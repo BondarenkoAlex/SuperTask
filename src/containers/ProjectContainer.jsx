@@ -25,9 +25,9 @@ class ProjectContainer extends Component {
   }
 
   onClickHeader() {
-    this.setState({
-      isToogle: !this.state.isToogle,
-    });
+    this.setState(prevState => ({
+      isToogle: !prevState.isToogle,
+    }));
   }
 
   render() {

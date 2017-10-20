@@ -5,6 +5,7 @@ import {
   OPEN_CLOSE_VACANCY,
   REMOVE_VACANCY,
 } from '../constants';
+import { isEmpty } from '../utils/check';
 
 const initialState = {};
 
@@ -25,8 +26,13 @@ function vacancies(state = initialState, action) {
     }
 
     case REMOVE_PROJECT: {
-      const vacs = { ...state };
       const { vacancies } = action.payload;
+
+      if (isEmpty(vacancies)) {
+        return state;
+      }
+
+      const vacs = { ...state };
       vacancies.forEach((id) => {
         delete vacs[id];
       });
@@ -43,14 +49,6 @@ function vacancies(state = initialState, action) {
         vacs[id].isClosed = status;
       });
       return vacs;
-    }
-
-    case '': {
-      return {
-        ...state,
-        isFetching: false,
-        error: action.payload,
-      };
     }
 
     default:

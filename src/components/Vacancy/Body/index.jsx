@@ -11,18 +11,17 @@ class Body extends PureComponent {
     const { isClosed } = this.props;
     return (
       <section className={style.vacancy}>
-        {{
-          false: (
-            <div>
-              <SearchIcon />
-              <span>Вакансия открыта, идет подбор кандидатов</span>
-            </div>),
-          true: (
+        {isClosed
+          ? (
             <div>
               <CkeckIcon />
               <span>Вакансия закрыта, сотрудник нанят</span>
-            </div>),
-        }[isClosed]}
+            </div>)
+          : (
+            <div>
+              <SearchIcon />
+              <span>Вакансия открыта, идет подбор кандидатов</span>
+            </div>)}
       </section>
     );
   }

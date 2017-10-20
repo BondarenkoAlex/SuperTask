@@ -71,7 +71,6 @@ class ProjectListContainer extends Component {
 
   updateState(payload) {
     this.setState({
-      ...this.state,
       ...payload,
     });
   }
@@ -79,8 +78,7 @@ class ProjectListContainer extends Component {
   render() {
     const {
       projects,
-      vacancies,
-      // eslint-disable-next-line react/prop-types
+      vacancies,      
       titleModal,
       // eslint-disable-next-line react/prop-types
       nameButtonModal,

@@ -53,7 +53,6 @@ class VacancyListContainer extends Component {
 
   updateState(payload) {
     this.setState({
-      ...this.state,
       ...payload,
     });
   }

@@ -33,10 +33,9 @@ class ProjectHeader extends PureComponent {
           onClick={onOpenClose}
           isClosed={isClosed}
         >
-          {{
-            false: 'Закрыть проект',
-            true: 'Открыть проект',
-          }[isClosed]}
+          {isClosed
+            ? 'Открыть проект'
+            : 'Закрыть проект'}
         </SideButtons>
       </section>
     );

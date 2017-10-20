@@ -43,7 +43,6 @@ class AddProjectVacancyContainer extends Component {
   onChange(e) {
     const value = e.target.value;
     this.setState({
-      ...this.state,
       value,
     });
   }

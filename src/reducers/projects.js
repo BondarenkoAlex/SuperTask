@@ -19,7 +19,7 @@ function projects(state = initialState, action) {
     }
 
     case REMOVE_PROJECT: {
-      const projects = state;
+      const projects = { ...state };
       const { projectId } = action.payload;
       delete projects[projectId];
       return projects;

@@ -24,10 +24,9 @@ class Vacancy extends PureComponent {
           onClick={onOpenClose}
           isClosed={isClosed}
         >
-          {{
-            false: 'Закрыть вакансию',
-            true: 'Открыть вакансию',
-          }[isClosed]}
+          {isClosed
+            ? 'Открыть вакансию'
+            : 'Закрыть вакансию'}
         </SideButtons>
       </article>
     );
@@ -35,10 +34,10 @@ class Vacancy extends PureComponent {
 }
 
 Vacancy.propTypes = {
-  title: PropTypes.string,
-  isClosed: PropTypes.bool,
-  onDelete: PropTypes.func,
-  onOpenClose: PropTypes.func,
+  title: PropTypes.string.isRequired,
+  isClosed: PropTypes.bool.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onOpenClose: PropTypes.func.isRequired,
 };
 Vacancy.defaultProps = {};
 

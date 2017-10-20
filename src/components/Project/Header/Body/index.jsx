@@ -20,19 +20,18 @@ class Body extends PureComponent {
           <span className={style.articleSpan}>
             {count} {title}
           </span>
-          {{
-            false: (
-              <div className={[style.addVacancy, 'green'].join(' ')}>
-                <Button onClick={onAdd}>
-                  Добавить вакансию
-                </Button>
-              </div>),
-            true: (
+          {isClosed
+            ? (
               <div className={style.closed}>
                 <CkeckIcon />
                 <span>Проект закрыт, сотрудники наняты</span>
-              </div>),
-          }[isClosed]}
+              </div>)
+            : (
+              <div className={[style.addVacancy, 'green'].join(' ')}>
+                <Button onClick={onAdd}>
+                Добавить вакансию
+                </Button>
+              </div>)}
         </div>
       </article>
     );
